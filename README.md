@@ -1,2 +1,4 @@
 # Trading-simulator
-A simulation of transactions made by investing entities on various markets (GUI included)
+simulation of transactions made by investing entities on various markets (GUI included)
+
+## how to use it

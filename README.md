@@ -1,2 +1,2 @@
-# trading-simulator
-uni project simulating transactions made by investing entities on various markets
+# Trading-simulator
+A simulation of transactions made by investing entities on various markets (GUI included)

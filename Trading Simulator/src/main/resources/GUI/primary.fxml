@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="777.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PrimaryController">
+   <children>
+      <Label fx:id="mainLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="1.0" prefHeight="59.0" prefWidth="1112.0" style="-fx-background-color: #FFFFFF;" text="Trading Simulator" textFill="#e05f14">
+         <font>
+            <Font name="Lucida Bright Demibold" size="35.0" />
+         </font>
+      </Label>
+      <SplitPane dividerPositions="0.5" layoutY="58.0" prefHeight="718.0" prefWidth="1112.0">
+         <items>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="400.0" style="-fx-box-border: #E19E78;">
+               <children>
+                  <Label fx:id="transMinLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="117.0" layoutY="176.0" prefHeight="26.0" prefWidth="66.0" text="trans/min" textFill="#e05f14" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="AddStockMarket" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="360.0" mnemonicParsing="false" onAction="#addStockMarket" prefHeight="30.0" prefWidth="140.0" text="STOCK MARKET" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="AddStockMarket1" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="430.0" mnemonicParsing="false" onAction="#addCurrencyMarket" prefHeight="30.0" prefWidth="140.0" text="CURRENCY MARKET" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="AddStockMarket2" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="395.0" mnemonicParsing="false" onAction="#addCommodityMarket" prefHeight="30.0" prefWidth="140.0" text="COMMODITY MARKET" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="330.0" prefHeight="30.0" prefWidth="140.0" text="ADD A MARKET" textFill="#e05f14">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="BBratioSlider" layoutX="55.0" layoutY="51.0" majorTickUnit="0.1" max="1.0" minorTickCount="1" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="126.0" prefWidth="66.0" showTickLabels="true" showTickMarks="true" value="0.5" />
+                  <Label fx:id="BBratioLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="48.0" layoutY="176.0" prefHeight="26.0" prefWidth="58.0" text="BB ratio" textFill="#e05f14" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="BBimageView" fitHeight="40.0" fitWidth="40.0" layoutX="60.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+                  <Slider fx:id="transPerMinSlider" layoutX="130.0" layoutY="51.0" majorTickUnit="10.0" min="10.0" minorTickCount="1" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="126.0" prefWidth="66.0" showTickLabels="true" showTickMarks="true" value="50.0" />
+                  <ImageView fx:id="transMinimageView" fitHeight="40.0" fitWidth="40.0" layoutX="130.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  </ImageView>
+                  <Button fx:id="addAssetButton" disable="true" layoutX="235.0" layoutY="530.0" mnemonicParsing="false" onAction="#addAsset" prefHeight="30.0" prefWidth="140.0" text="ADD AN ASSET">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addIndexButton" layoutX="235.0" layoutY="565.0" mnemonicParsing="false" onAction="#addIndex" prefHeight="30.0" prefWidth="140.0" text="ADD AN INDEX">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="30.0" layoutY="208.0" prefHeight="480.0" prefWidth="180.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="180.0" text="Stock Markets:" textFill="#e05f14">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="stockMarketsListView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="180.0" />
+                        <Label prefHeight="40.0" prefWidth="180.0" text="Commodity Markets:" textFill="#e05f14">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="commodityMarketsListView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="180.0" />
+                        <Label prefHeight="40.0" prefWidth="180.0" text="Currency Markets:" textFill="#e05f14">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="currencyMarketsListView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="180.0" />
+                     </children>
+                  </VBox>
+                  <Label fx:id="selectedMarketLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="500.0" prefHeight="30.0" prefWidth="140.0" text="-">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="480.0" prefHeight="30.0" prefWidth="140.0" text="SELECTED MARKET:" textFill="#e05f14">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="infoLabel" alignment="TOP_LEFT" layoutX="230.0" layoutY="37.0" prefHeight="270.0" prefWidth="170.0" text="[market/asset details]" wrapText="true" />
+                  <Label contentDisplay="CENTER" layoutX="230.0" layoutY="15.0" prefHeight="20.0" prefWidth="170.0" text="INFORMATION:" textFill="#e05f14">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="700.0" style="-fx-box-border: #E19E78;" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label contentDisplay="CENTER" layoutX="14.0" layoutY="13.0" prefHeight="20.0" prefWidth="190.0" text="Companies:" textFill="#e05f14">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="assetListView" layoutX="14.0" layoutY="281.0" prefHeight="370.0" prefWidth="190.0" />
+                  <Label fx:id="companiesLabel" layoutX="14.0" layoutY="260.0" prefHeight="20.0" prefWidth="188.0" text="Assets:" textFill="#e05f14">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="multiChartButton" layoutX="25.0" layoutY="660.0" mnemonicParsing="false" onAction="#showMultiChart" prefHeight="30.0" prefWidth="170.0" text="PLOT MULTIPLE ASSETS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <LineChart fx:id="primaryLineChart" createSymbols="false" layoutX="193.0" layoutY="290.0" prefHeight="400.0" prefWidth="500.0">
+                    <xAxis>
+                      <NumberAxis forceZeroInRange="false" label="time [s]" prefHeight="43.0" prefWidth="370.0" side="BOTTOM" fx:id="xAxis" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="price" prefHeight="328.0" prefWidth="42.0" side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <Label fx:id="assetLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="240.0" layoutY="270.0" prefHeight="30.0" prefWidth="450.0" text="WELCOME!" textFill="#e05f14">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="bezosImageView" fitHeight="270.0" fitWidth="395.0" layoutX="275.0" layoutY="340.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="removeButton" disable="true" layoutX="609.0" layoutY="660.0" mnemonicParsing="false" onAction="#removeAsset" prefHeight="30.0" text="REMOVE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <ListView fx:id="companiesListView" layoutX="14.0" layoutY="35.0" prefHeight="170.0" prefWidth="190.0" />
+                  <Button fx:id="buyOutButton" disable="true" layoutX="50.0" layoutY="215.0" mnemonicParsing="false" onAction="#forceBuyOut" prefHeight="30.0" prefWidth="120.0" text="FORCE BUYOUT">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <ListView fx:id="investmentFundsListView" layoutX="535.0" layoutY="35.0" prefHeight="170.0" prefWidth="140.0" />
+                  <ListView fx:id="investorsListView" layoutX="390.0" layoutY="35.0" prefHeight="170.0" prefWidth="140.0" />
+                  <Label layoutX="390.0" layoutY="13.0" prefHeight="20.0" prefWidth="140.0" text="Investors:" textFill="#e05f14">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="535.0" layoutY="13.0" prefHeight="20.0" prefWidth="140.0" text="Investment Funds:" textFill="#e05f14" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="investorButton" layoutX="415.0" layoutY="210.0" mnemonicParsing="false" onAction="#addInvestor" prefHeight="30.0" prefWidth="100.0" text="NEW INVESTOR">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="investmentFundButton" layoutX="555.0" layoutY="210.0" mnemonicParsing="false" onAction="#addInvestmentFund" prefHeight="30.0" prefWidth="100.0" text="NEW FUND">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="222.5" layoutY="13.0" prefHeight="20.0" prefWidth="150.0" text="INVESTMENT ENTITY:" textFill="#e05f14">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="invInfoLabel" alignment="TOP_LEFT" layoutX="223.0" layoutY="35.0" prefHeight="226.0" prefWidth="150.0" text="[inv entity details]" wrapText="true" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

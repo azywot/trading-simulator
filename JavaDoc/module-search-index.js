@@ -1,1 +1,0 @@
-moduleSearchIndex = [{"l":"TradingSimulator.project"}];updateSearchResults();
